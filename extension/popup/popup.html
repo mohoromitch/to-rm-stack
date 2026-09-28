@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../ui.css" />
+    <style>
+      main {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Send to reMarkable</h1>
+      <p id="source" class="muted">Checking this tab…</p>
+      <label>
+        Device
+        <select id="device"></select>
+      </label>
+      <fieldset id="gdoc-layout" hidden>
+        <legend>Google Doc layout</legend>
+        <label><input type="radio" name="gdocLayout" value="original" /> Google's layout, fitted to the screen</label>
+        <label><input type="radio" name="gdocLayout" value="reflow" /> Reflow the text for the screen</label>
+      </fieldset>
+      <button id="send" disabled>Send</button>
+      <button id="preview" disabled>Preview PDF</button>
+      <p id="status" role="status"></p>
+      <p id="pair-hint" hidden>Not paired yet. <a href="#" id="open-options">Pair your reMarkable account</a>.</p>
+      <p class="muted"><a href="#" id="settings-link">Settings</a></p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

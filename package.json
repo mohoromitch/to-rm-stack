@@ -1,0 +1,22 @@
+{
+  "name": "to-rm-stack",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Firefox extension that sends Google Docs, PDFs, and web articles to a reMarkable tablet as device-sized PDFs.",
+  "type": "module",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "test": "node --test test/",
+    "lint": "npm run vendor && web-ext lint --source-dir extension",
+    "start": "npm run vendor && web-ext run --source-dir extension",
+    "build": "npm run vendor && web-ext build --source-dir extension --artifacts-dir dist --overwrite-dest"
+  },
+  "devDependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "html-to-pdfmake": "^2.5.34",
+    "jsdom": "^30.1.1",
+    "pdf-lib": "^1.17.1",
+    "pdfmake": "^0.3.11",
+    "web-ext": "^10.7.0"
+  }
+}

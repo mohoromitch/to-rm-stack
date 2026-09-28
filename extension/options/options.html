@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>To reMarkable settings</title>
+    <link rel="stylesheet" href="../ui.css" />
+    <style>
+      main {
+        max-width: 520px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>To reMarkable settings</h1>
+
+      <section id="permissions" hidden>
+        <h2>Permissions</h2>
+        <p class="error">
+          The extension needs access to all websites to download PDFs, export Google Docs, and read articles.
+        </p>
+        <button id="grant">Grant access</button>
+      </section>
+
+      <h2>reMarkable account</h2>
+      <p id="pair-status" class="muted">Checking…</p>
+      <div id="pair-form" hidden>
+        <ol>
+          <li><a id="connect-link" target="_blank" rel="noreferrer">Get a one-time code</a> from reMarkable.</li>
+          <li>Paste the 8-character code here.</li>
+        </ol>
+        <label>
+          One-time code
+          <input id="code" type="text" autocomplete="off" spellcheck="false" maxlength="12" />
+        </label>
+        <button id="pair">Pair</button>
+      </div>
+      <div id="unpair-form" hidden>
+        <button id="unpair">Unpair</button>
+        <p class="muted">
+          Unpairing deletes the tokens stored in Firefox. To revoke access, also remove the browser device at
+          my.remarkable.com.
+        </p>
+      </div>
+      <p id="pair-result" role="status"></p>
+
+      <h2>Defaults</h2>
+      <label>
+        Device
+        <select id="device"></select>
+      </label>
+      <fieldset>
+        <legend>Google Doc layout</legend>
+        <label><input type="radio" name="gdocLayout" value="original" /> Google's layout, fitted to the screen</label>
+        <label><input type="radio" name="gdocLayout" value="reflow" /> Reflow the text for the screen</label>
+      </fieldset>
+      <label>
+        <input id="trim" type="checkbox" />
+        Trim Google Doc page margins (removes headers, footers, and page numbers)
+      </label>
+      <label>
+        Article font size in points (leave empty for the device default)
+        <input id="font-size" type="number" min="6" max="24" step="0.5" />
+      </label>
+      <p id="saved" class="muted" role="status"></p>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
